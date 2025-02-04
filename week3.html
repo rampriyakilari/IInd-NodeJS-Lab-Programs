@@ -108,20 +108,37 @@
                 return false;
             }
 
-            // Validate phone number (simple validation)
-            const phonePattern = /^[0-9]{10}$/; // Adjust the pattern as needed
+            //Validate Name
+            for(x in name)
+             {
+             ch=name.charCodeAt(x);
+             if(ch<65||ch>90 && ch<97||ch>122)
+                 {
+                 alert("Invalid Name");
+                 return false;
+                 }
+            }
+
+            // Validate phone number 
+            const phonePattern = /^[0-9]{10}$/; 
             if (!phone.match(phonePattern)) {
                 alert('Please enter a valid 10-digit phone number.');
                 return false;
             }
 
             // Validate email format
-            const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@ ]+$/; // Basic email validation
+            const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@ ]+$/; 
             if (!email.match(emailPattern)) {
                 alert('Please enter a valid email address.');
                 return false;
             }
-
+            //Validate Password Length
+            var pwdl=password.length;
+            if(pwdl > 8)
+            {
+            alert("Password should not exceed 8 digits");
+            return false;
+            }
 
             alert('Registration successful!');
             return false; 
